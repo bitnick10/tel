@@ -1,0 +1,28 @@
+﻿<Window x:Class="Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Wpf"
+        Name="mainWindow"
+        Title="Server" Height="442" Width="678" Loaded="mainWindow_Loaded" Closing="mainWindow_Closing">
+    <Window.Resources>
+        <local:WidthConverter x:Key="widthConverter" />
+        <local:HeightConverter x:Key="heightConverter" />
+    </Window.Resources>
+    <Grid>
+        <RichTextBox Name="richTextBox" HorizontalAlignment="Left"
+                     Width="{Binding Path=Width,ElementName=mainWindow,Converter={StaticResource widthConverter}}" 
+                     Height="{Binding Path=Height,ElementName=mainWindow,Converter={StaticResource heightConverter}}" 
+                     VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Background="Black" Foreground="White" FontWeight="Normal" VerticalScrollBarVisibility="Visible" BorderThickness="0" >
+            
+            <FlowDocument AllowDrop="True" FontFamily="Arial" FontWeight="Medium" IsOptimalParagraphEnabled="True" PagePadding="0" >
+                <Paragraph>
+                    <Run Text="RichTextBox RichTextBox"/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Text="RichTextBox RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+    </Grid>
+</Window>

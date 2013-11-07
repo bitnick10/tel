@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Telegraph", "Telegraph\Telegraph.vcxproj", "{5F8B75CE-E432-42CE-8323-F5B48DAA2FCE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TelegraphTester", "TelegraphTester\TelegraphTester.vcxproj", "{18065D14-6E30-4082-ACBA-3F1C835454A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F8B75CE-E432-42CE-8323-F5B48DAA2FCE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5F8B75CE-E432-42CE-8323-F5B48DAA2FCE}.Debug|Win32.Build.0 = Debug|Win32
+		{5F8B75CE-E432-42CE-8323-F5B48DAA2FCE}.Release|Win32.ActiveCfg = Release|Win32
+		{5F8B75CE-E432-42CE-8323-F5B48DAA2FCE}.Release|Win32.Build.0 = Release|Win32
+		{18065D14-6E30-4082-ACBA-3F1C835454A9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{18065D14-6E30-4082-ACBA-3F1C835454A9}.Debug|Win32.Build.0 = Debug|Win32
+		{18065D14-6E30-4082-ACBA-3F1C835454A9}.Release|Win32.ActiveCfg = Release|Win32
+		{18065D14-6E30-4082-ACBA-3F1C835454A9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
