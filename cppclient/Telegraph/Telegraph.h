@@ -178,6 +178,10 @@ Telegraph* Telegraph::instance = NULL;
 	sprintf(Telegraph::getInstance()->tele_handle->Text.pText,format,arg1,arg2,arg3);    \
 	Telegraph::getInstance()->textDisplay(Telegraph::getInstance()->tele_handle->Text.pText);
 
+#define TEL_DEBUG_PRINTF4(format,arg1,arg2,arg3,arg4)    \
+	sprintf(Telegraph::getInstance()->tele_handle->Text.pText,format,arg1,arg2,arg3,arg4);    \
+	Telegraph::getInstance()->textDisplay(Telegraph::getInstance()->tele_handle->Text.pText);
+
 #define TEL_DEBUG_STOPWATCH_START()    \
 	Telegraph::getInstance()->stopwatchStart();
 
