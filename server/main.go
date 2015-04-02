@@ -60,9 +60,17 @@ func server() {
 }
 func HTTPImageServer() {
 	http.HandleFunc("/image", func(w http.ResponseWriter, r *http.Request) {
-		file, header, err := r.FormFile("file")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		fmt.Println(r.RemoteAddr, r.Method, r.URL)
+		// for k, v := range r.Header {
+		// 	fmt.Println(k, v)
+		// }
+		file, fileheader, err := r.FormFile("file")
+		for k, v := range fileheader.Header {
+			fmt.Println(k, v)
+		}
 		defer file.Close()
-		out, err := os.Create("/tmp/uploadedfile")
+		out, err := os.Create("C:/tmp/" + fileheader.Filename)
 		if err != nil {
 			fmt.Fprintf(w, "Unable to create the file for writing. Check your write access privilege")
 			return
@@ -73,17 +81,26 @@ func HTTPImageServer() {
 		_, err = io.Copy(out, file)
 		if err != nil {
 			fmt.Fprintln(w, err)
+			return
 		}
 
+		fmt.Println(fileheader.Filename, "has been saved to", out.Name())
 		fmt.Fprintf(w, "File uploaded successfully : ")
-		fmt.Fprintf(w, header.Filename)
+		fmt.Fprintf(w, fileheader.Filename)
 	})
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		fmt.Println("http server err")
+	port := ":27000"
+	s := &http.Server{
+		Addr: "192.168.1.170" + port,
+	}
+	fmt.Println("http server at " + s.Addr)
+	err := s.ListenAndServe()
+	if err != nil {
+		fmt.Println(fmt.Sprintf("ListenAndServe: ", err))
 	}
 }
 func main() {
 	go server()
+	go HTTPImageServer()
 	go client()
 	var input string
 	fmt.Scanln(&input)
